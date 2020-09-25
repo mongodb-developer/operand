@@ -1,2 +1,0 @@
-# operand
-Operand demo
