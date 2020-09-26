@@ -1,3 +1,4 @@
+var clc = require("cli-color");
 function sleep(ms) {
   return new Promise(resolve=>setTimeout(resolve, ms));
 }
@@ -10,10 +11,10 @@ for (i = 0; i < 10; i++) {
 }
 
 async function demo() {
-  console.log('Testing Level 13...');
+  console.log(clc.red.bgWhite.underline("Testing Level 13..."));
   await sleep(2000);
-  console.log('Verify authentication...');
-  await sleep(1000);
+  console.log(clc.yellow.bgWhite.underline('Verify authentication...'));
+  await sleep(1020);
   console.log('Validate keys...');
   await sleep(1301);
 

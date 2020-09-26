@@ -74,8 +74,6 @@ for (var i=0; i < maxUsers; i++) {
 			last_name: faker.name.lastName(),
 			email: faker.internet.email(),
 			password: "nopassword",
-			creditCardNumber: faker.finance.creditCardNumber(),
-			creditCardCVV: faker.finance.creditCardCVV(),
 			addr1: faker.address.streetAddress(),
 			city: faker.address.city(),
 			state: faker.address.stateAbbr(),
