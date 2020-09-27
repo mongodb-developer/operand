@@ -89,8 +89,6 @@ for (var i=0; i < maxUsers; i++) {
 			zipcode: faker.address.zipCode(),
 			country: country,
 			telephone: faker.phone.phoneNumber(),
-			creditCardNumber: faker.finance.creditCardNumber(),
-			creditCardCVV: faker.finance.creditCardCVV(),
 			role: 'visitor',
 			acceptedTOS: Date.now(),
 			created: Date.now(),

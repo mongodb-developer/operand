@@ -1,0 +1,10 @@
+{
+    "id": "5f6fc0431b63a98b81a6ae0d",
+    "name": "usersAggTrigger",
+    "type": "SCHEDULED",
+    "config": {
+        "schedule": "*/1 * * * *"
+    },
+    "function_name": "usersAggInsight",
+    "disabled": false
+}

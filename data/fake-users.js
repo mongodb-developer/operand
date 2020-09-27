@@ -65,6 +65,10 @@ for (var i=0; i < maxUsers; i++) {
 			items.push(purchasedArray[item]._id);
 
 		};
+//
+// This is where we need to tailor the user document to match the schema we created
+// and we'll need to modify the model as well.
+//
 		user = new User({
 			location: {
 				type: 'Point',
