@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <h1>Angular 2 Boilerplate</h1>\n        <p>Hello World!</p>\n    ",
+                        template: "\n        <h1>Operand</h1>\n        <p>Level 13</p>\n    ",
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

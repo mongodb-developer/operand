@@ -1,3 +1,2 @@
 #!/bin/sh
-source .env.prod
-mongo {$MONGODB_URI}
+mongo "mongodb+srv://level13-prod.1yivo.mongodb.net/operand" --username malena
