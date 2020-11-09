@@ -8,7 +8,8 @@
     "development": "nodemon ./bin/www",
     "production": "NODE_ENV=production nodemon ./bin/www",
     "test-level13": "node scripts/tests.js",
-    "release-level13": "node release-level13.js"
+    "release-level13": "node scripts/release-level13.js",
+    "enable-fle": "node scripts/enable-fle.js"
   },
   "dependencies": {
     "assert": "2.0.0",
@@ -36,7 +37,7 @@
     "express-mongoose-docs": "0.3.2",
     "express-session": "1.17.0",
     "express-validator": "6.2.0",
-    "faker": "5.1.0",
+    "faker": "^5.1.0",
     "fs": "0.0.2",
     "geocoder": "0.2.3",
     "gulp-print": "^5.0.2",

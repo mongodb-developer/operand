@@ -29,23 +29,23 @@ mongoose.connection.on('error', () => {
 games = [];
 const maxUsers = 20;
 var done=0;
-admin = new User({
-	"email": "admin@admin.com",
-	"first_name": "Admin",
-	"last_name": "Istrator",
-	"role": "admin",
-	"password": "password",
-	location: {
-		type: "Point",
-		coordinates: [ 39.941022, -75.156809 ]
-	}
-});
-admin.save(function(err) {
-	if (err) {
-		console.log("Error creating administrative user.  " + err.message);
-		process.abort();
-	}
-})
+// admin = new User({
+// 	"email": "admin@admin.com",
+// 	"first_name": "Admin",
+// 	"last_name": "Istrator",
+// 	"role": "admin",
+// 	"password": "password",
+// 	location: {
+// 		type: "Point",
+// 		coordinates: [ 39.941022, -75.156809 ]
+// 	}
+// });
+// admin.save(function(err) {
+// 	if (err) {
+// 		console.log("Error creating administrative user.  " + err.message);
+// 		process.abort();
+// 	}
+// })
 for (var i=0; i < maxUsers; i++) {
 	var filter = {};
 	var fields = { _id: 1 };
@@ -55,7 +55,9 @@ for (var i=0; i < maxUsers; i++) {
 	var city = faker.address.city();
 	var state = faker.address.stateAbbr();
 	var zipcode = faker.address.zipCode();
-	
+   var first_name = faker.name.firstName();
+   var last_name = faker.name.lastName();	
+   var twitter = "https://twitter.com/" + faker.internet.userName(first_name, last_name);
 	Game.findRandom(filter, fields, options, function(err,purchasedArray) {
 		if (err) {
 			console.log(err);
@@ -69,20 +71,24 @@ for (var i=0; i < maxUsers; i++) {
 // This is where we need to tailor the user document to match the schema we created
 // and we'll need to modify the model as well.
 //
+      var first_name = faker.name.firstName();
+      var last_name = faker.name.lastName();	
+      var twitter = "https://twitter.com/" + faker.internet.userName(first_name, last_name);
 		user = new User({
 			location: {
 				type: 'Point',
 				coordinates: [ faker.address.latitude(), faker.address.longitude() ]
 			},
-			first_name: faker.name.firstName(),
-			last_name: faker.name.lastName(),
-			email: faker.internet.email(),
+			first_name: first_name,
+			last_name: last_name,
+			email: faker.internet.email(first_name, last_name),
 			password: "nopassword",
 			addr1: faker.address.streetAddress(),
 			city: faker.address.city(),
 			state: faker.address.stateAbbr(),
 			zipcode: faker.address.zipCode(),
 			country: faker.address.country(),
+			twitter: twitter,
 			telephone: faker.phone.phoneNumber(),
 			role: 'visitor',
 			acceptedTOS: Date.now(),

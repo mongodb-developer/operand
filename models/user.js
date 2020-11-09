@@ -58,6 +58,10 @@ var userSchema = new Schema({
 	website: {
 		type: String,
 		required: false
+   },
+   twitter: {
+		type: String,
+		required: false
 	},
 	home_group: {
 		type: String

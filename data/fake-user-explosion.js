@@ -30,23 +30,23 @@ mongoose.connection.on('error', () => {
 games = [];
 const maxUsers = 10000;
 var done=0;
-admin = new User({
-	"email": "admin@admin.com",
-	"first_name": "Admin",
-	"last_name": "Istrator",
-	"role": "admin",
-	"password": "password",
-	location: {
-		type: "Point",
-		coordinates: [ 39.941022, -75.156809 ]
-	}
-});
-admin.save(function(err) {
-	if (err) {
-		console.log("Error creating administrative user.  " + err.message);
-		process.abort();
-	}
-})
+// admin = new User({
+// 	"email": "admin@admin.com",
+// 	"first_name": "Admin",
+// 	"last_name": "Istrator",
+// 	"role": "admin",
+// 	"password": "password",
+// 	location: {
+// 		type: "Point",
+// 		coordinates: [ 39.941022, -75.156809 ]
+// 	}
+// });
+// admin.save(function(err) {
+// 	if (err) {
+// 		console.log("Error creating administrative user.  " + err.message);
+// 		process.abort();
+// 	}
+// })
 var rcount = 0;
 for (var i=0; i < maxUsers; i++) {
     console.log("User count: " + i);
