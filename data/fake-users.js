@@ -65,6 +65,10 @@ for (var i=0; i < maxUsers; i++) {
 			items.push(purchasedArray[item]._id);
 
 		};
+//
+// This is where we need to tailor the user document to match the schema we created
+// and we'll need to modify the model as well.
+//
 		user = new User({
 			location: {
 				type: 'Point',
@@ -74,8 +78,6 @@ for (var i=0; i < maxUsers; i++) {
 			last_name: faker.name.lastName(),
 			email: faker.internet.email(),
 			password: "nopassword",
-			creditCardNumber: faker.finance.creditCardNumber(),
-			creditCardCVV: faker.finance.creditCardCVV(),
 			addr1: faker.address.streetAddress(),
 			city: faker.address.city(),
 			state: faker.address.stateAbbr(),
