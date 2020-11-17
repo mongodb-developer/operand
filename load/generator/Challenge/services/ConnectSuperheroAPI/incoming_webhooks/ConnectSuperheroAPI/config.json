@@ -1,0 +1,13 @@
+{
+    "id": "5ddac7dc95ac28ec94788380",
+    "name": "ConnectSuperheroAPI",
+    "run_as_authed_user": false,
+    "run_as_user_id": "",
+    "run_as_user_id_script_source": "",
+    "options": {
+        "httpMethod": "POST",
+        "validationMethod": "NO_VALIDATION"
+    },
+    "respond_result": true,
+    "disable_arg_logs": true
+}

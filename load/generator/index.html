@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <style>
+    .jumbotron {
+        background-color: white;
+        border-style:solid;
+        border-width: 1px;
+        border-color: navy;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+        -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+        box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+        filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+        zoom: 1;
+    }
+    
+    #box {
+        border-radius: 25px;
+        border: 1px solid white;
+        box-shadow: 0 0 5px gray;
+    }
+    .form-control:focus {
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    input:focus::-webkit-input-placeholder{
+        color: transparent;
+    }
+   </style>
+    <script src="https://kit.fontawesome.com/e1f93e03c9.js"></script>
+    <title>Superhero</title>
+</head>
+<body>
+<div class="container">
+    <header class="jumbotron">
+        <div class="row">
+                <div class="col-3 view overlay">
+                    <img src="http://4.bp.blogspot.com/-eQk7ExTTSbY/TmrqqxUn58I/AAAAAAAAA-s/lyOhImLLVeU/s400/Review+Captain+America+-+Super+Soldier+The+Return+of+The+Avenger+Icon.jpg" style="height:18em;">
+                </div>
+            <!-- Grid column -->
+
+            <div class="col-9">
+                <h1 style="text-align:center">Who's Your Favorite Superhero?</h1>
+                <br>
+                <div class="row" id="box">
+                    <div class="col-11">
+                        <form method="POST" onsubmit="userAction()" action="javascript:">
+                            <input type="text"  onsubmit="userAction()" autocomplete="off" id="myInput" class="form-control" placeholder="name your hero..." aria-label="Search" style="font-size: 2em; border:none">
+                        </form>
+                    </div>
+                   <!--  <div class="col-1">
+                        <span><i class="fa fa-search" aria-hidden="true" onclick="userAction()" ></i></span>
+                    </div> -->
+                </div>
+            </div>
+            <br>
+        </div>
+    </header>
+
+
+    <div>
+        <p id="results" style="font-size: 1.8em"></p>
+    </div>
+
+</div>
+<script>
+
+    
+    function userAction(){  
+
+        let hero = document.getElementById("myInput").value;
+        let txt = "";
+        console.log(hero);
+        let webhook_url = "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/operand-mbfsm/service/ConnectSuperheroAPI/incoming_webhook/ConnectSuperheroAPI";
+
+        fetch(webhook_url, {
+            method: 'POST',
+            headers: { "content-type" : "application/json; charset=UTF-8"},
+            body:hero
+        }).then(function (response) {
+            console.log(response);
+                if(!response.ok){
+                    console.log(response);
+                    document.getElementById("results").innerHTML = `Sorry =-(<br><br> You failed to write <b>${hero}</b> to the superheroes collection in the AtlasChallenge database`;
+                    
+                    throw Error(response.statusText);
+                } else {
+                    document.getElementById("results").innerHTML = `Thank you!<br><br> You have just written <b>${hero}</b> to the superheroes collection in the AtlasChallenge database`;
+                    return response.json();
+                }
+                
+            });
+    }
+
+   
+</script>
+
+</body>
+</html>
+

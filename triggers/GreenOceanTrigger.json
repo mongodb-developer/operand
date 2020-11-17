@@ -1,0 +1,10 @@
+{
+    "id": "5f6fc0431b63a98b81a6ae0a",
+    "name": "GreenOceanTrigger",
+    "type": "SCHEDULED",
+    "config": {
+        "schedule": "*/1 * * * *"
+    },
+    "function_name": "greenOcean",
+    "disabled": false
+}
