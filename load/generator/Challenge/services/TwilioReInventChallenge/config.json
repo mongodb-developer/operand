@@ -1,0 +1,12 @@
+{
+    "id": "5ddac7dc95ac28ec94788392",
+    "name": "TwilioReInventChallenge",
+    "type": "twilio",
+    "config": {
+        "sid": "AC275b7c1589f7fa26aaf4206b73f947e1"
+    },
+    "secret_config": {
+        "auth_token": "challenge_sh"
+    },
+    "version": 1
+}

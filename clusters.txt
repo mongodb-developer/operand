@@ -1,1 +1,0 @@
-mongodb+srv://<username>:<password>@level12-prod.1yivo.mongodb.net/<dbname>?retryWrites=true&w=majority

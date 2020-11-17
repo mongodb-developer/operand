@@ -62,12 +62,6 @@ var userSchema = new Schema({
 	home_group: {
 		type: String
 	},
-	creditCardNumber: {
-		type: String
-	},
-	creditCardCVV: {
-		type: String
-	},
 	role: {
 		type: String,
 		required: false,
